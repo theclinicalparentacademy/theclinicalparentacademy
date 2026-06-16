@@ -1179,13 +1179,20 @@
       <p class="section-eyebrow lang-en" style="color:var(--navy);margin-bottom:20px;">Ready to join?</p>
       <p class="section-eyebrow lang-es" style="color:var(--navy);margin-bottom:20px;">¿Lista para unirte?</p>
       <div id="waitlist">
-        <form class="waitlist-form" onsubmit="handleSubmit(event)">
+        <form class="waitlist-form" action="https://assets.mailerlite.com/jsonp/2450471/forms/190465364590593414/subscribe" method="post">
+          <input type="hidden" name="ml-submit" value="1" />
+          <input type="hidden" name="anticsrf" value="true" />
+          <input type="hidden" name="redirect" value="https://theclinicalparentacademy.com?success=true" />
           <input type="email" name="fields[email]" id="emailInput" placeholder="Your email address" required />
           <button type="submit" class="btn-primary">
             <span class="lang-en">Reserve My Spot</span>
             <span class="lang-es">Reserva Mi Lugar</span>
           </button>
         </form>
+        <div class="success-msg" id="success-hero" style="display:none;">
+          <span class="lang-en">You are in. We will be in touch soon.</span>
+          <span class="lang-es">Ya estás dentro. Estaremos en contacto pronto.</span>
+        </div>
         <div class="success-msg" id="success">
           <span class="lang-en">You're in. We'll be in touch soon.</span>
           <span class="lang-es">Ya estás dentro. Estaremos en contacto pronto.</span>
@@ -1305,7 +1312,9 @@
         Únete a la lista de espera y obtén acceso anticipado y precios de miembro fundador desde el momento del lanzamiento. Porque tú tienes un doctorado en tu hijo. Es hora de que tu educación esté a la altura.
       </p>
 
-      <form class="waitlist-form" onsubmit="handleSubmit2(event)" style="margin-bottom:14px;">
+      <form class="waitlist-form" action="https://assets.mailerlite.com/jsonp/2450471/forms/190465364590593414/subscribe" method="post" style="margin-bottom:14px;">
+        <input type="hidden" name="ml-submit" value="1" />
+        <input type="hidden" name="anticsrf" value="true" />
         <input type="email" name="fields[email]" id="emailInput2" placeholder="Your email address" required />
         <button type="submit" class="btn-primary">
           <span class="lang-en">I Want Early Access</span>
@@ -1464,44 +1473,13 @@
       }
     }
 
-    const ML_URL = "https://assets.mailerlite.com/jsonp/2450471/forms/190465364590593414/subscribe";
-
-    function handleSubmit(e) {
-      e.preventDefault();
-      const email = document.getElementById('emailInput').value;
-      const form = e.target;
-      fetch(ML_URL, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'fields[email]=' + encodeURIComponent(email)
-      }).then(() => {
-        form.style.display = 'none';
-        const section = form.closest('section');
-        const msg = section.querySelector('.success-msg');
-        if (msg) msg.style.display = 'block';
-      }).catch(() => {
-        form.style.display = 'none';
-        const section = form.closest('section');
-        const msg = section.querySelector('.success-msg');
-        if (msg) msg.style.display = 'block';
-      });
-    }
-
-    function handleSubmit2(e) {
-      e.preventDefault();
-      const email = document.getElementById('emailInput2').value;
-      const form = e.target;
-      fetch(ML_URL, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'fields[email]=' + encodeURIComponent(email)
-      }).then(() => {
-        form.style.display = 'none';
-        document.getElementById('success2').style.display = 'block';
-      }).catch(() => {
-        form.style.display = 'none';
-        document.getElementById('success2').style.display = 'block';
-      });
+    // Check if returning from MailerLite submission
+    if (window.location.search.includes('success=true')) {
+      const forms = document.querySelectorAll('.waitlist-form');
+      forms.forEach(f => f.style.display = 'none');
+      const msgs = document.querySelectorAll('.success-msg');
+      msgs.forEach(m => m.style.display = 'block');
+      window.history.replaceState({}, document.title, window.location.pathname);
     }
   </script>
 
