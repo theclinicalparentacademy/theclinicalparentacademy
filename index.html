@@ -35,48 +35,67 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      padding: 16px 40px;
+      padding: 14px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       background: rgba(250,248,245,0.93);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid rgba(168,212,230,0.25);
-      gap: 16px;
+      gap: 8px;
     }
 
     .nav-logo {
       font-family: 'Lora', serif;
-      font-size: 1rem;
       font-weight: 600;
       color: var(--navy);
       letter-spacing: 0.01em;
-      flex-shrink: 0;
+      flex-shrink: 1;
+      min-width: 0;
+      line-height: 1.1;
     }
-    .nav-logo span { color: #4A7AB5; }
+
+    .nav-logo-top {
+      font-size: 0.68rem;
+      font-weight: 400;
+      color: var(--text-mid);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav-logo-bottom {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      white-space: nowrap;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
 
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      flex-shrink: 0;
     }
 
     .lang-toggle {
-      background: transparent;
-      border: 1.5px solid var(--navy);
+      background: var(--baby-blue);
+      border: none;
       color: var(--navy);
-      padding: 8px 16px;
+      padding: 8px 14px;
       border-radius: 100px;
       font-family: 'Inter', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
+      font-size: 0.8rem;
+      font-weight: 700;
       cursor: pointer;
       transition: all 0.2s;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
     }
     .lang-toggle:hover {
-      background: var(--navy);
-      color: white;
+      background: #8ec8de;
     }
 
     .nav-cta {
@@ -84,16 +103,21 @@
       color: white;
       border: none;
       cursor: pointer;
-      padding: 10px 22px;
+      padding: 9px 16px;
       border-radius: 100px;
       font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 500;
+      font-size: 0.82rem;
+      font-weight: 600;
       transition: background 0.2s;
       text-decoration: none;
       white-space: nowrap;
     }
     .nav-cta:hover { background: #1e3459; }
+
+    @media (max-width: 380px) {
+      .lang-toggle { display: none; }
+      .nav-logo { font-size: 0.78rem; }
+    }
 
     /* ── HERO ── */
     .hero {
@@ -270,7 +294,7 @@
     .trust-bar strong { color: var(--baby-blue); }
 
     /* ── SECTION BASE ── */
-    section { padding: 90px 24px; }
+    section { padding: 64px 24px; }
 
     .container { max-width: 900px; margin: 0 auto; }
 
@@ -304,7 +328,7 @@
     /* ── MANIFESTO STRIP ── */
     .manifesto-strip {
       background: white;
-      padding: 80px 24px;
+      padding: 48px 24px 40px;
       border-bottom: 1px solid rgba(168,212,230,0.18);
     }
 
@@ -314,10 +338,8 @@
       gap: 32px;
       align-items: center;
       max-width: 700px;
-      margin: 0 auto 64px;
+      margin: 0 auto 36px;
     }
-
-    .manifesto-stat { text-align: center; }
 
     .stat-number {
       font-family: 'Lora', serif;
@@ -413,13 +435,13 @@
     }
 
     /* ── WHAT THIS IS ── */
-    .what-this-is { background: white; }
+    .what-this-is { background: white; padding: 48px 24px 40px; }
 
     .features-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
-      margin-top: 52px;
+      margin-top: 32px;
     }
 
     .feature-card {
@@ -455,6 +477,15 @@
       line-height: 1.75;
     }
 
+    .feature-sub {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      line-height: 1.65;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(45,74,122,0.07);
+    }
+
     /* ── TOPICS ── */
     .topics { background: var(--navy); padding: 90px 24px; }
     .topics .section-eyebrow { color: var(--baby-blue); }
@@ -482,28 +513,37 @@
     .pill.highlight { background: var(--baby-blue); border-color: var(--baby-blue); color: var(--navy); font-weight: 600; }
 
     /* ── LEVELS ── */
-    .levels { background: white; }
+    .levels { background: white; padding: 48px 24px 40px; }
 
-    .levels-stack { display: flex; flex-direction: column; gap: 16px; margin-top: 48px; }
+    .levels-single-card {
+      background: var(--warm-white);
+      border-radius: 20px;
+      padding: 8px 24px;
+      margin-top: 36px;
+    }
+
+    .levels-divider {
+      height: 1px;
+      background: rgba(45,74,122,0.08);
+      margin: 0 8px;
+    }
 
     .level-row {
       display: grid;
-      grid-template-columns: 48px 1fr;
-      gap: 24px;
+      grid-template-columns: 40px 1fr;
+      gap: 18px;
       align-items: start;
-      background: var(--warm-white);
-      border-radius: 20px;
-      padding: 28px;
+      padding: 18px 8px;
     }
 
     .level-number {
-      width: 48px; height: 48px;
+      width: 40px; height: 40px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Lora', serif;
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: 600;
       flex-shrink: 0;
       margin-top: 2px;
@@ -522,7 +562,7 @@
     .level-desc { font-size: 0.92rem; color: var(--text-mid); line-height: 1.75; }
 
     /* ── FOUNDER ── */
-    .founder { background: var(--cream); }
+    .founder { background: var(--cream); padding: 48px 24px 40px; }
 
     .founder-inner {
       display: grid;
@@ -669,7 +709,7 @@
     /* ── THERAPIST CTA ── */
     .therapist-cta {
       background: #EEF6FA;
-      padding: 90px 24px;
+      padding: 48px 24px 40px;
     }
 
     .therapist-inner {
@@ -737,7 +777,10 @@
       background: white;
       border: 1.5px solid rgba(45,74,122,0.1);
       border-radius: 20px;
-      padding: 24px 22px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
     }
 
     .therapist-badge.sage-badge {
@@ -746,10 +789,11 @@
     }
 
     .badge-icon {
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: var(--navy);
-      margin-bottom: 10px;
       font-family: 'Inter', sans-serif;
+      flex-shrink: 0;
+      margin-top: 2px;
     }
 
     .therapist-badge p {
@@ -757,6 +801,7 @@
       color: var(--text-mid);
       line-height: 1.7;
       font-family: 'Inter', sans-serif;
+      margin: 0;
     }
 
     @media (max-width: 680px) {
@@ -764,10 +809,56 @@
       .therapist-badge-wrap { padding-top: 0; }
     }
 
+    .disclaimer {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      line-height: 1.65;
+      max-width: 480px;
+      margin: 10px auto 0;
+      text-align: center;
+    }
+
+    /* ── PARTNERSHIPS ── */
+    .partnerships {
+      background: var(--navy);
+      padding: 48px 24px;
+    }
+
+    .partnerships-inner {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .partnerships .section-eyebrow { color: var(--baby-blue) !important; }
+    .partnerships .section-title { color: white; }
+    .partnerships .section-body { color: rgba(255,255,255,0.65); max-width: 100%; }
+
+    .partnerships-cta {
+      display: flex;
+      justify-content: center;
+    }
+
+    .partnerships-cta .btn-primary {
+      background: var(--baby-blue);
+      color: var(--navy);
+      font-size: 1rem;
+      padding: 14px 36px;
+    }
+
+    .partnerships-cta .btn-primary:hover { background: #8ec8de; }
+
+    @media (max-width: 680px) {
+      .partnerships-inner { grid-template-columns: 1fr; }
+      .partnerships-cta { justify-content: flex-start; }
+    }
+
     /* ── FOOTER ── */
     footer { background: #111827; padding: 36px 24px; text-align: center; }
     footer p { font-size: 0.8rem; color: rgba(255,255,255,0.3); line-height: 1.9; }
     footer strong { color: rgba(255,255,255,0.55); }
+    footer .footer-disclaimer { font-size: 0.72rem; color: rgba(255,255,255,0.2); margin-top: 12px; line-height: 1.7; max-width: 560px; margin-left: auto; margin-right: auto; }
 
     /* ── LANGUAGE TOGGLE ── */
     body.en .lang-es { display: none !important; }
@@ -779,8 +870,8 @@
       .nav-logo { font-size: 0.82rem; }
       .problem-grid { grid-template-columns: 1fr; }
       .founder-inner { grid-template-columns: 1fr; }
-      .manifesto-grid { grid-template-columns: 1fr; }
-      .manifesto-vs { display: none; }
+      .manifesto-grid { gap: 16px; }
+      .stat-number { font-size: 2.8rem; }
       .waitlist-form { flex-direction: column; align-items: stretch; }
       .waitlist-form input[type="email"] { min-width: unset; }
       section { padding: 64px 20px; }
@@ -792,7 +883,10 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">The Clinical Parent <span>Academy</span></div>
+    <div class="nav-logo">
+      <div class="nav-logo-top">The Clinical Parent</div>
+      <div class="nav-logo-bottom">Academy</div>
+    </div>
     <div class="nav-right">
       <button class="lang-toggle" onclick="toggleLang()" id="langBtn">Ver en Español</button>
       <button class="nav-cta lang-en" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Join the Waitlist</button>
@@ -815,15 +909,11 @@
       <p class="hero-tagline lang-en">Because you hold a PhD on your child.</p>
       <p class="hero-tagline lang-es">Porque tú tienes un doctorado en tu hijo.</p>
 
-      <p class="hero-descriptor lang-en">The Clinical Parent Academy is a first-of-its-kind platform bringing evidence-based courses, expert coaching, and real clinical knowledge directly to the parents who need it most, born out of one SLP's conviction that parents have been left in the shadows of their child's care for far too long.</p>
-      <p class="hero-descriptor lang-es">The Clinical Parent Academy es una plataforma pionera que lleva cursos basados en evidencia, asesoría experta y conocimiento clínico real directamente a los padres que más lo necesitan, nacida de la convicción de una SLP de que los padres han sido dejados en las sombras del cuidado de sus hijos por demasiado tiempo.</p>
+      <p class="hero-descriptor lang-en">The Clinical Parent Academy is a one-stop educational hub where parents access evidence-based clinical education modules, a supportive parent community, 1:1 coaching with vetted specialists, and live expert events, all in one place on your schedule and at your pace.</p>
+      <p class="hero-descriptor lang-es">The Clinical Parent Academy es un centro educativo integral donde los padres acceden a módulos de educación clínica basada en evidencia, una comunidad de apoyo, asesoría 1:1 con especialistas verificados y eventos en vivo con expertos, todo en un solo lugar, a tu horario y a tu ritmo.</p>
 
-      <p class="hero-body lang-en">
-        The Clinical Parent Academy brings therapy-room knowledge straight to the parents who need it most. No gatekeeping. No waiting rooms. No wondering what your child's therapist really meant. Just real, vetted, clinical education built for families like yours, on your schedule, at your pace.
-      </p>
-      <p class="hero-body lang-es">
-        The Clinical Parent Academy lleva el conocimiento de la sala de terapia directamente a los padres que más lo necesitan. Sin barreras. Sin salas de espera. Sin preguntarse qué quiso decir el terapeuta de su hijo. Solo educación clínica real y verificada, creada para familias como la tuya, a tu ritmo y en tu horario.
-      </p>
+      <p class="hero-body lang-en">No gatekeeping. No wondering what your child's therapist really meant. Clinicians have access to continuing education, conferences, and yearly training. We believe you should too.</p>
+      <p class="hero-body lang-es">Sin barreras. Sin preguntarse qué quiso decir el terapeuta de tu hijo. Los clínicos tienen acceso a educación continua, conferencias y capacitación anual. Creemos que tú también deberías tenerlo.</p>
 
       <div class="hero-highlights lang-en">
         <div class="highlight-item">10–15 min evidence-based courses you can fit into any day</div>
@@ -856,8 +946,10 @@
           <span class="lang-en">You're in. We'll be in touch soon.</span>
           <span class="lang-es">Ya estás dentro. Estaremos en contacto pronto.</span>
         </div>
-        <p class="form-note lang-en">Free to join. Be the first to know when we launch.</p>
-        <p class="form-note lang-es">Es gratis. Sé el primero en saber cuando lancemos.</p>
+        <p class="form-note lang-en">Join the waitlist for early access and founding member pricing.</p>
+        <p class="form-note lang-es">Únete a la lista para acceso anticipado y precios de miembro fundador.</p>
+        <p class="disclaimer lang-en">The Clinical Parent Academy provides educational content only. Nothing on this platform constitutes medical advice, therapy, or a clinical relationship. Always consult a licensed professional for guidance specific to your child.</p>
+        <p class="disclaimer lang-es">The Clinical Parent Academy ofrece contenido educativo únicamente. Nada en esta plataforma constituye consejo médico, terapia o una relación clínica. Siempre consulta a un profesional licenciado para orientación específica sobre tu hijo.</p>
       </div>
     </div>
   </section>
@@ -874,8 +966,8 @@
       <div class="manifesto-grid">
         <div class="manifesto-stat">
           <div class="stat-number">30 <span>min</span></div>
-          <p class="lang-en">That is how long your child's therapist has with them each week. Thirty minutes.</p>
-          <p class="lang-es">Eso es todo el tiempo que el terapeuta de tu hijo tiene con él cada semana. Treinta minutos.</p>
+          <p class="lang-en">That is how long your child's therapist has with them each week.</p>
+          <p class="lang-es">Eso es todo el tiempo que el terapeuta de tu hijo tiene con él cada semana.</p>
         </div>
         <div class="manifesto-vs">but</div>
         <div class="manifesto-stat highlight-stat">
@@ -896,20 +988,6 @@
     </div>
   </section>
 
-  <!-- THE PROBLEM -->
-  <section class="problem">
-    <div class="container">
-      <p class="section-eyebrow lang-en">You know this feeling</p>
-      <p class="section-eyebrow lang-es">Conoces este sentimiento</p>
-
-      <h2 class="section-title lang-en">The information exists.<br/>It just was never meant for you.</h2>
-      <h2 class="section-title lang-es">La información existe.<br/>Solo que nunca fue pensada para ti.</h2>
-
-      <p class="section-body lang-en">Clinicians have 30 minutes with your child. Maybe five minutes to answer your questions. That gap is not your fault. But it ends here.</p>
-      <p class="section-body lang-es">Los clínicos tienen 30 minutos con tu hijo. Tal vez cinco para responder tus preguntas. Esa brecha no es tu culpa. Pero termina aquí.</p>
-    </div>
-  </section>
-
   <!-- WHAT THIS IS -->
   <section class="what-this-is">
     <div class="container">
@@ -919,79 +997,47 @@
       <h2 class="section-title lang-en">The place parents have always deserved.</h2>
       <h2 class="section-title lang-es">El lugar que los padres siempre merecieron.</h2>
 
-      <p class="section-body lang-en">The same caliber of education clinicians get every year, built entirely for you. Because a parent who understands their child's needs is the most powerful force in that child's life.</p>
-      <p class="section-body lang-es">La misma calidad de educación que reciben los clínicos cada año, construida completamente para ti. Porque un padre que entiende las necesidades de su hijo es la fuerza más poderosa en la vida de ese niño.</p>
+      <p class="section-body lang-en">Here is what you will find inside.</p>
+      <p class="section-body lang-es">Esto es lo que encontrarás adentro.</p>
 
       <div class="features-grid">
         <div class="feature-card f1">
           <h3 class="feature-title lang-en">Clinical Courses</h3>
           <h3 class="feature-title lang-es">Cursos Clínicos</h3>
           <p class="feature-desc lang-en">10 to 60 min evidence-based lessons across every therapy area. Watch whenever life allows.</p>
-          <p class="feature-desc lang-es">Lecciones de 10 a 60 min en todas las áreas de terapia. Mira cuando la vida lo permita.</p>
+          <p class="feature-desc lang-es">Lecciones de 10 a 60 min basadas en evidencia en todas las áreas de terapia. Mira cuando la vida lo permita.</p>
+          <p class="feature-sub lang-en">Full course series by diagnosis, level, and therapy type, presented by vetted SLPs, OTs, literacy specialists, developmental pediatricians, and more.</p>
+          <p class="feature-sub lang-es">Series completas por diagnóstico, nivel y tipo de terapia, presentadas por SLPs, OTs, especialistas en alfabetización, pediatras del desarrollo y más.</p>
         </div>
         <div class="feature-card f2">
           <h3 class="feature-title lang-en">1:1 Coaching</h3>
           <h3 class="feature-title lang-es">Asesoría Individual</h3>
           <p class="feature-desc lang-en">Book directly with a vetted SLP, OT, literacy specialist, or advocate when you need more.</p>
           <p class="feature-desc lang-es">Reserva directamente con un especialista verificado cuando necesites más apoyo.</p>
+          <p class="feature-sub lang-en">IEP prep, home strategy questions, or anything in between. Downloadable guides you can bring to every appointment and meeting.</p>
+          <p class="feature-sub lang-es">Preparación del IEP, estrategias para el hogar, o lo que necesites. Guías descargables para cada cita y reunión.</p>
         </div>
         <div class="feature-card f3">
-          <h3 class="feature-title lang-en">Parent Community</h3>
-          <h3 class="feature-title lang-es">Comunidad de Padres</h3>
-          <p class="feature-desc lang-en">Diagnosis-specific spaces, peer support, virtual Parent Hours, and mental health professionals for you.</p>
-          <p class="feature-desc lang-es">Espacios por diagnóstico, apoyo entre pares, Horas de Padres virtuales y salud mental para ti.</p>
+          <h3 class="feature-title lang-en">Parent Community and Support</h3>
+          <h3 class="feature-title lang-es">Comunidad y Apoyo para Padres</h3>
+          <p class="feature-desc lang-en">Diagnosis-specific spaces, peer support, and virtual Parent Hours in live breakout rooms.</p>
+          <p class="feature-desc lang-es">Espacios por diagnóstico, apoyo entre pares y Horas de Padres virtuales en salas en vivo.</p>
+          <p class="feature-sub lang-en">We also bring in licensed therapists and mental health professionals to support you, not just your child. Because the weight of this journey is real.</p>
+          <p class="feature-sub lang-es">También traemos terapeutas y profesionales de salud mental para apoyarte a ti, no solo a tu hijo. Porque el peso de este camino es real.</p>
         </div>
         <div class="feature-card f4">
-          <h3 class="feature-title lang-en">Live Events and Symposium</h3>
-          <h3 class="feature-title lang-es">Eventos en Vivo y Simposio</h3>
+          <h3 class="feature-title lang-en">Live Events and Annual Symposium</h3>
+          <h3 class="feature-title lang-es">Eventos en Vivo y Simposio Anual</h3>
           <p class="feature-desc lang-en">Monthly webinars with real Q&amp;A plus an annual symposium built entirely for families.</p>
-          <p class="feature-desc lang-es">Seminarios mensuales con Q&amp;A y un simposio anual construido completamente para familias.</p>
+          <p class="feature-desc lang-es">Seminarios mensuales con Q&amp;A real y un simposio anual construido completamente para familias.</p>
+          <p class="feature-sub lang-en">Keynotes, breakout sessions by diagnosis, and parent panels. Your version of the professional conference. Your seat at the table.</p>
+          <p class="feature-sub lang-es">Conferencias magistrales, sesiones por diagnóstico y paneles de padres. Tu versión de la conferencia profesional. Tu lugar en la mesa.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- TOPICS -->
-  <section class="topics">
-    <div class="container">
-      <p class="section-eyebrow lang-en">Content hubs</p>
-      <p class="section-eyebrow lang-es">Centros de contenido</p>
-
-      <h2 class="section-title lang-en">Whatever your child needs, we have a hub for it.</h2>
-      <h2 class="section-title lang-es">Lo que tu hijo necesite, tenemos un centro para eso.</h2>
-
-      <p class="section-body lang-en">Launching with Speech and Language Development and expanding from there. Every hub goes deep, from the parent who just received a diagnosis to the parent who wants the advanced clinical detail behind every strategy.</p>
-      <p class="section-body lang-es">Lanzamos con Desarrollo del Habla y el Lenguaje y nos expandimos desde ahí. Cada centro va a profundidad, desde el padre que acaba de recibir un diagnóstico hasta el padre que quiere el detalle clínico avanzado detrás de cada estrategia.</p>
-
-      <div class="topics-pills">
-        <span class="pill highlight lang-en">Speech and Language Development</span>
-        <span class="pill highlight lang-es">Desarrollo del Habla y el Lenguaje</span>
-        <span class="pill lang-en">Literacy and Reading</span>
-        <span class="pill lang-es">Alfabetización y Lectura</span>
-        <span class="pill lang-en">Bilingualism</span>
-        <span class="pill lang-es">Bilingüismo</span>
-        <span class="pill lang-en">Autism Spectrum</span>
-        <span class="pill lang-es">Espectro Autista</span>
-        <span class="pill lang-en">Down Syndrome</span>
-        <span class="pill lang-es">Síndrome de Down</span>
-        <span class="pill lang-en">ADHD and Executive Function</span>
-        <span class="pill lang-es">TDAH y Función Ejecutiva</span>
-        <span class="pill">AAC</span>
-        <span class="pill lang-en">Early Intervention</span>
-        <span class="pill lang-es">Intervención Temprana</span>
-        <span class="pill lang-en">Feeding and Swallowing</span>
-        <span class="pill lang-es">Alimentación y Deglución</span>
-        <span class="pill lang-en">IEP and Advocacy</span>
-        <span class="pill lang-es">IEP y Defensa</span>
-        <span class="pill lang-en">Auditory Processing</span>
-        <span class="pill lang-es">Procesamiento Auditivo</span>
-        <span class="pill lang-en">Dyslexia and Structured Literacy</span>
-        <span class="pill lang-es">Dislexia y Alfabetización Estructurada</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- LEVELS -->
   <section class="levels">
     <div class="container">
       <p class="section-eyebrow lang-en">Meet you where you are</p>
@@ -1003,7 +1049,7 @@
       <p class="section-body lang-en">Whether your child was diagnosed last week or you have been navigating this for years, there is a level here built for where you are right now.</p>
       <p class="section-body lang-es">Ya sea que tu hijo fue diagnosticado la semana pasada o llevas años navegando esto, hay un nivel aquí construido para donde estás ahora mismo.</p>
 
-      <div class="levels-stack">
+      <div class="levels-single-card">
         <div class="level-row">
           <div class="level-number l1">1</div>
           <div>
@@ -1013,6 +1059,7 @@
             <p class="level-desc lang-es">Acabas de recibir un diagnóstico. Empezamos con el vocabulario, el sistema y la confianza para dar tus primeros pasos.</p>
           </div>
         </div>
+        <div class="levels-divider"></div>
         <div class="level-row">
           <div class="level-number l2">2</div>
           <div>
@@ -1022,6 +1069,7 @@
             <p class="level-desc lang-es">Ya conoces lo básico. Ahora obtén estrategias para el hogar, comunicación escolar y confianza en el IEP.</p>
           </div>
         </div>
+        <div class="levels-divider"></div>
         <div class="level-row">
           <div class="level-number l3">3</div>
           <div>
@@ -1078,53 +1126,6 @@
     </div>
   </section>
 
-  <!-- INSIDE -->
-  <section class="inside">
-    <div class="container">
-      <p class="section-eyebrow lang-en">Inside the Academy</p>
-      <p class="section-eyebrow lang-es">Dentro de la Academia</p>
-
-      <h2 class="section-title lang-en">Everything in one place.</h2>
-      <h2 class="section-title lang-es">Todo en un solo lugar.</h2>
-
-      <p class="section-body lang-en">No more piecing it together from a midnight Google search. Clinical knowledge, community, and support all in one place.</p>
-      <p class="section-body lang-es">No más buscar en Google a medianoche. Conocimiento clínico, comunidad y apoyo, todo en un solo lugar.</p>
-
-      <div class="inside-compact-grid">
-        <div class="inside-compact-item">
-          <span class="inside-label">Learn</span>
-          <p class="lang-en">10 to 60 min evidence-based lessons, on your schedule.</p>
-          <p class="lang-es">Lecciones de 10 a 60 min basadas en evidencia, a tu ritmo.</p>
-        </div>
-        <div class="inside-compact-item">
-          <span class="inside-label">Go Deep</span>
-          <p class="lang-en">Full course series by diagnosis, level, and therapy type.</p>
-          <p class="lang-es">Series completas por diagnóstico, nivel y tipo de terapia.</p>
-        </div>
-        <div class="inside-compact-item">
-          <span class="inside-label">Take It Home</span>
-          <p class="lang-en">Downloadable guides for every appointment and IEP meeting.</p>
-          <p class="lang-es">Guías descargables para cada cita y reunión del IEP.</p>
-        </div>
-        <div class="inside-compact-item">
-          <span class="inside-label">Connect</span>
-          <p class="lang-en">Diagnosis-specific community spaces, peer support, and virtual Parent Hours.</p>
-          <p class="lang-es">Espacios por diagnóstico, apoyo entre pares y Horas de Padres virtuales.</p>
-        </div>
-        <div class="inside-compact-item">
-          <span class="inside-label">Go Live</span>
-          <p class="lang-en">Monthly webinars and an annual parent symposium with real Q&amp;A.</p>
-          <p class="lang-es">Seminarios mensuales y un simposio anual con preguntas y respuestas reales.</p>
-        </div>
-        <div class="inside-compact-item">
-          <span class="inside-label">Get Support</span>
-          <p class="lang-en">Licensed therapists and mental health professionals here for you, not just your child.</p>
-          <p class="lang-es">Terapeutas y profesionales de salud mental aquí para ti, no solo para tu hijo.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FINAL CTA -->
   <section class="final-cta">
     <div class="container" style="position:relative;z-index:2;">
@@ -1135,10 +1136,10 @@
       <h2 class="section-title lang-es">Sé el primer padre en entrar.</h2>
 
       <p class="section-body lang-en">
-        Join the waitlist and get early access, founding member pricing, and a free clinical resource the moment we launch. Because you hold a PhD on your child. It is time your education matched it.
+        Join the waitlist and get early access and founding member pricing from the moment we launch. Because you hold a PhD on your child. It is time your education matched it.
       </p>
       <p class="section-body lang-es">
-        Únete a la lista de espera y obtén acceso anticipado, precios de miembro fundador y un recurso clínico gratuito en el momento del lanzamiento. Porque tú tienes un doctorado en tu hijo. Es hora de que tu educación esté a la altura.
+        Únete a la lista de espera y obtén acceso anticipado y precios de miembro fundador desde el momento del lanzamiento. Porque tú tienes un doctorado en tu hijo. Es hora de que tu educación esté a la altura.
       </p>
 
       <form class="waitlist-form" onsubmit="handleSubmit(event)" style="margin-bottom:14px;">
@@ -1152,8 +1153,8 @@
         <span class="lang-en">You're in. Welcome to the Academy.</span>
         <span class="lang-es">Ya estás dentro. Bienvenido a la Academia.</span>
       </div>
-      <p class="form-note lang-en">No spam. Ever. Just updates on something being built for you.</p>
-      <p class="form-note lang-es">Sin spam. Nunca. Solo actualizaciones sobre algo construido para ti.</p>
+      <p class="form-note lang-en">Join the waitlist for early access and founding member pricing.</p>
+      <p class="form-note lang-es">Únete a la lista para acceso anticipado y precios de miembro fundador.</p>
     </div>
   </section>
 
@@ -1162,14 +1163,16 @@
     <div class="container">
       <div class="therapist-inner">
         <div class="therapist-text">
-          <p class="section-eyebrow lang-en">For clinicians</p>
-          <p class="section-eyebrow lang-es">Para clínicos</p>
+          <p class="section-eyebrow lang-en" style="display:inline-block;background:var(--navy);color:var(--baby-blue);padding:6px 16px;border-radius:100px;letter-spacing:0.14em;font-size:0.72rem;font-weight:700;margin-bottom:16px;">For Clinicians</p>
+          <p class="section-eyebrow lang-es" style="display:inline-block;background:var(--navy);color:var(--baby-blue);padding:6px 16px;border-radius:100px;letter-spacing:0.14em;font-size:0.72rem;font-weight:700;margin-bottom:16px;">Para Clínicos</p>
 
           <h2 class="section-title lang-en">Are you a therapist, clinician, or specialist?</h2>
           <h2 class="section-title lang-es">¿Eres terapeuta, clínico o especialista?</h2>
 
           <p class="section-body lang-en">The Clinical Parent Academy is building a vetted network of SLPs, OTs, PTs, literacy specialists, developmental pediatricians, psychologists, and special education advocates who are passionate about putting clinical knowledge directly into the hands of families. If you believe that educating a parent is the gift that keeps on giving, you belong here.</p>
+          <p class="section-body lang-en" style="margin-top:12px;">We take clinical accuracy seriously. All content shared through The Clinical Parent Academy should be grounded in current research, established clinical frameworks, and evidence-based practice. We trust our contributors to bring the same integrity to parent education that they bring to their clinical work every day.</p>
           <p class="section-body lang-es">The Clinical Parent Academy está construyendo una red verificada de SLPs, OTs, PTs, especialistas en alfabetización, pediatras del desarrollo, psicólogos y defensores de educación especial apasionados por poner el conocimiento clínico directamente en manos de las familias. Si crees que educar a un padre es el regalo que nunca deja de dar, perteneces aquí.</p>
+          <p class="section-body lang-es" style="margin-top:12px;">Tomamos la precisión clínica muy en serio. Todo el contenido compartido a través de The Clinical Parent Academy debe estar fundamentado en investigación actual, marcos clínicos establecidos y práctica basada en evidencia. Confiamos en que nuestros colaboradores traigan la misma integridad a la educación de padres que traen a su trabajo clínico todos los días.</p>
 
           <div class="therapist-perks lang-en">
             <div class="perk-item">Present courses to a highly engaged parent audience</div>
@@ -1181,7 +1184,7 @@
             <div class="perk-item">Presenta cursos a una audiencia de padres altamente comprometida</div>
             <div class="perk-item">Únete al directorio de asesoría 1:1 y amplía tu alcance</div>
             <div class="perk-item">Co-presenta seminarios web en vivo y horas virtuales para padres</div>
-            <div class="perk-item">Construye tu marca profesional junto a una plataforma en crecimiento</div>
+            <div class="perk-item">Construye tu marca profesional junto a un hub en crecimiento</div>
           </div>
 
           <button onclick="window.location.href='mailto:theclinicalparentacademy@gmail.com?subject=Contributor%20Interest%20%E2%80%94%20The%20Clinical%20Parent%20Academy&body=Hi%20Kathy%2C%0A%0AMy%20name%20is%20%5Byour%20name%5D%20and%20I%20am%20a%20%5Byour%20credentials%20and%20specialty%5D.%0A%0AI%20am%20interested%20in%20becoming%20a%20contributor%20to%20The%20Clinical%20Parent%20Academy.%20Here%20is%20a%20little%20about%20me%3A%0A%0A%5BTell%20us%20about%20your%20clinical%20background%2C%20areas%20of%20expertise%2C%20and%20what%20you%20would%20love%20to%20teach%20parents%5D%0A%0ALooking%20forward%20to%20connecting%2C%0A%5BYour%20name%5D'" class="btn-therapist lang-en">I Want to Be a Contributor</button>
@@ -1204,6 +1207,26 @@
     </div>
   </section>
 
+  <!-- PARTNERSHIPS STRIP -->
+  <section class="partnerships">
+    <div class="container">
+      <div class="partnerships-inner">
+        <div>
+          <p class="section-eyebrow lang-en" style="color:var(--navy);">Partnerships</p>
+          <p class="section-eyebrow lang-es" style="color:var(--navy);">Alianzas</p>
+          <h2 class="section-title lang-en" style="font-size:1.6rem;margin-bottom:10px;">Are you a school district, organization, or company?</h2>
+          <h2 class="section-title lang-es" style="font-size:1.6rem;margin-bottom:10px;">¿Eres un distrito escolar, organización o empresa?</h2>
+          <p class="section-body lang-en">We offer district licensing, organizational partnerships, and custom parent education packages for companies and agencies who want to bring The Clinical Parent Academy to their families.</p>
+          <p class="section-body lang-es">Ofrecemos licencias para distritos, alianzas organizacionales y paquetes personalizados de educación para padres para empresas y agencias que quieran llevar The Clinical Parent Academy a sus familias.</p>
+        </div>
+        <div class="partnerships-cta">
+          <button onclick="window.location.href='mailto:theclinicalparentacademy@gmail.com?subject=Partnership%20Inquiry%20%E2%80%94%20The%20Clinical%20Parent%20Academy&body=Hi%20Kathy%2C%0A%0AI%20am%20interested%20in%20exploring%20a%20partnership%20with%20The%20Clinical%20Parent%20Academy.%0A%0AOrganization%3A%20%5BName%5D%0AType%3A%20%5BDistrict%20%2F%20Company%20%2F%20Organization%5D%0AWhat%20we%20are%20looking%20for%3A%20%5BDescribe%5D%0A%0ALooking%20forward%20to%20connecting%2C%0A%5BYour%20name%5D'" class="btn-primary lang-en">Let's Talk</button>
+          <button onclick="window.location.href='mailto:theclinicalparentacademy@gmail.com?subject=Consulta%20de%20Alianza%20%E2%80%94%20The%20Clinical%20Parent%20Academy&body=Hola%20Kathy%2C%0A%0AEstoy%20interesado%20en%20explorar%20una%20alianza%20con%20The%20Clinical%20Parent%20Academy.%0A%0AOrganización%3A%20%5BNombre%5D%0ATipo%3A%20%5BDistrito%20%2F%20Empresa%20%2F%20Organización%5D%0ALo%20que%20buscamos%3A%20%5BDescribir%5D%0A%0AQuedo%20en%20contacto%2C%0A%5BTu%20nombre%5D'" class="btn-primary lang-es">Hablemos</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <p>
@@ -1214,6 +1237,8 @@
       &copy; 2026 The Clinical Parent Academy. All rights reserved.<br/>
       A brand under <strong>IKB Creative</strong>
     </p>
+    <p class="footer-disclaimer lang-en">The Clinical Parent Academy provides educational content only. Nothing on this platform constitutes medical advice, therapy, or a clinical relationship. Always consult a licensed professional for guidance specific to your child.</p>
+    <p class="footer-disclaimer lang-es">The Clinical Parent Academy ofrece contenido educativo únicamente. Nada en esta plataforma constituye consejo médico, terapia o una relación clínica. Siempre consulta a un profesional licenciado para orientación específica sobre tu hijo.</p>
   </footer>
 
   <script>
