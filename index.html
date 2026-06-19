@@ -183,7 +183,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 140px 24px 80px;
+      padding: 140px 24px 32px;
       position: relative;
       overflow: hidden;
     }
@@ -239,15 +239,23 @@
     }
 
     .hero-descriptor {
-      font-size: 0.97rem;
+      font-size: 1.05rem;
       color: var(--navy);
-      max-width: 600px;
-      margin: 0 auto 28px;
-      line-height: 1.8;
+      max-width: 100%;
+      line-height: 1.7;
       font-weight: 500;
-      border-left: 3px solid var(--baby-blue);
-      padding-left: 16px;
-      text-align: left;
+      background: #EEF6FA;
+      padding: 18px 24px;
+      text-align: center;
+      border-top: 2px solid var(--baby-blue);
+      border-bottom: 2px solid var(--baby-blue);
+      display: block;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      margin-left: -50vw;
+      margin-top: 24px;
+      margin-bottom: 28px;
     }
 
     .hero-body {
@@ -267,12 +275,12 @@
     }
 
     .highlight-item {
-      font-size: 0.82rem;
+      font-size: 0.95rem;
       color: var(--navy);
-      font-weight: 500;
+      font-weight: 600;
       background: white;
       border: 1.5px solid rgba(45,74,122,0.12);
-      padding: 7px 14px;
+      padding: 10px 18px;
       border-radius: 100px;
       text-align: center;
     }
@@ -348,7 +356,7 @@
       color: var(--text-light);
       cursor: pointer;
       letter-spacing: 0.05em;
-      margin-top: 8px;
+      margin-top: 4px;
       transition: color 0.2s;
     }
     .scroll-nudge:hover { color: var(--navy); }
@@ -364,6 +372,23 @@
       margin-top: 16px;
       font-style: italic;
       letter-spacing: 0.02em;
+    }
+
+    .descriptor-banner {
+      width: calc(100% + 48px);
+      margin-left: -24px;
+      margin-right: -24px;
+      background: rgba(255,214,231,0.35);
+      border-top: 1.5px solid rgba(232,160,188,0.4);
+      border-bottom: 1.5px solid rgba(232,160,188,0.4);
+      padding: 20px 32px;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.7;
+      margin-top: 20px;
+      margin-bottom: 24px;
     }
 
     /* ── TRUST BAR ── */
@@ -728,6 +753,64 @@
       line-height: 1.7;
     }
 
+    /* ── FAQ ── */
+    .faq { background: var(--warm-white); }
+
+    .faq-list {
+      margin-top: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid rgba(45,74,122,0.1);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(45,74,122,0.1);
+    }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 18px 0;
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      line-height: 1.4;
+    }
+
+    .faq-q:hover { color: #4A7AB5; }
+
+    .faq-icon {
+      font-size: 1.4rem;
+      font-weight: 300;
+      flex-shrink: 0;
+      color: var(--baby-blue);
+      transition: transform 0.2s;
+    }
+
+    .faq-q.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-a {
+      display: none;
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      padding-bottom: 18px;
+      max-width: 680px;
+    }
+
+    .faq-a.open { display: block; }
+
     /* ── FINAL CTA ── */
     .final-cta {
       background: linear-gradient(135deg, var(--navy) 0%, #1e3459 100%);
@@ -1020,9 +1103,14 @@
   <!-- NAV -->
   <nav>
     <div class="nav-logo-wrap">
-      <div class="nav-logo">
+      <div class="nav-logo lang-en">
         <div class="nav-logo-top">The Clinical Parent</div>
         <div class="nav-logo-bottom">Academy</div>
+      </div>
+      <div class="nav-logo lang-es">
+        <div class="nav-logo-top" style="font-size:0.55rem;letter-spacing:0.05em;text-transform:uppercase;">El Padre</div>
+        <div class="nav-logo-bottom" style="letter-spacing:0.18em;">Clínico</div>
+        <div style="font-size:0.48rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(45,74,122,0.45);font-family:'Inter',sans-serif;word-spacing:0.05em;">The Clinical Parent Academy</div>
       </div>
     </div>
     <div class="nav-right">
@@ -1059,14 +1147,13 @@
       <p class="hero-tagline lang-en">Because you hold a PhD on your child.</p>
       <p class="hero-tagline lang-es">Porque tú tienes un doctorado en tu hijo.</p>
 
-      <p class="hero-descriptor lang-en">The Clinical Parent Academy is a one-stop educational hub where parents access evidence-based clinical education modules, a supportive parent community, 1:1 coaching with vetted specialists, and live expert events, all in one place on your schedule and at your pace.</p>
-      <p class="hero-descriptor lang-es">The Clinical Parent Academy es un centro educativo integral donde los padres acceden a módulos de educación clínica basada en evidencia, una comunidad de apoyo, asesoría 1:1 con especialistas verificados y eventos en vivo con expertos, todo en un solo lugar, a tu horario y a tu ritmo.</p>
-
-      <p class="hero-body lang-en">No gatekeeping. No wondering what your child's therapist really meant. Clinicians have access to continuing education, conferences, and yearly training. We believe you should too.</p>
-      <p class="hero-body lang-es">Sin barreras. Sin preguntarse qué quiso decir el terapeuta de tu hijo. Los clínicos tienen acceso a educación continua, conferencias y capacitación anual. Creemos que tú también deberías tenerlo.</p>
+      <div class="descriptor-banner">
+        <p class="lang-en">We are an educational platform that provides parents with expert-level clinical knowledge in parent-friendly language on topics like language development, bilingualism, autism, and so much more.</p>
+        <p class="lang-es">Somos una plataforma educativa que brinda a los padres conocimiento clínico de nivel experto en un lenguaje accesible sobre temas como el desarrollo del lenguaje, el bilingüismo, el autismo y mucho más.</p>
+      </div>
 
       <div class="hero-highlights lang-en">
-        <div class="highlight-item">10–15 min evidence-based courses you can fit into any day</div>
+        <div class="highlight-item">10–15 min evidence-based courses on your own schedule</div>
         <div class="highlight-dot"></div>
         <div class="highlight-item">1:1 coaching with vetted clinicians when you need more</div>
         <div class="highlight-dot"></div>
@@ -1075,7 +1162,7 @@
         <div class="highlight-item">Monthly live webinars with real Q&amp;A</div>
       </div>
       <div class="hero-highlights lang-es">
-        <div class="highlight-item">Cursos basados en evidencia de 10 a 15 min para cualquier día</div>
+        <div class="highlight-item">Cursos basados en evidencia de 10 a 15 min a tu propio horario</div>
         <div class="highlight-dot"></div>
         <div class="highlight-item">Asesoría 1:1 con clínicos verificados cuando necesitas más</div>
         <div class="highlight-dot"></div>
@@ -1083,6 +1170,9 @@
         <div class="highlight-dot"></div>
         <div class="highlight-item">Seminarios en vivo mensuales con preguntas y respuestas reales</div>
       </div>
+
+      <p class="hero-body lang-en">No gatekeeping. No wondering what your child's therapist really meant. Clinicians have access to continuing education, conferences, and yearly training. We believe you should too.</p>
+      <p class="hero-body lang-es">Sin barreras. Sin preguntarse qué quiso decir el terapeuta de tu hijo. Los terapeutas y profesionales de la salud tienen acceso a educación continua, conferencias y capacitación anual. Creemos que tú también mereces lo mismo.</p>
 
       <a class="scroll-nudge lang-en" onclick="document.querySelector('.manifesto-strip').scrollIntoView({behavior:'smooth'})">Learn more ↓</a>
       <a class="scroll-nudge lang-es" onclick="document.querySelector('.manifesto-strip').scrollIntoView({behavior:'smooth'})">Saber más ↓</a>
@@ -1289,6 +1379,8 @@
         <span class="pill lang-es">Procesamiento Auditivo</span>
         <span class="pill lang-en">Dyslexia and Structured Literacy</span>
         <span class="pill lang-es">Dislexia y Alfabetización Estructurada</span>
+        <span class="pill lang-en">Postpartum Support</span>
+        <span class="pill lang-es">Apoyo Postparto</span>
       </div>
     </div>
   </section>
@@ -1332,6 +1424,91 @@
             <span class="cred-tag sage">Pediatric and Adult</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <p class="section-eyebrow lang-en">Got questions?</p>
+      <p class="section-eyebrow lang-es">¿Tienes preguntas?</p>
+
+      <h2 class="section-title lang-en">Frequently Asked Questions</h2>
+      <h2 class="section-title lang-es">Preguntas Frecuentes</h2>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q lang-en" onclick="toggleFaq(this)">What is The Clinical Parent Academy? <span class="faq-icon">+</span></button>
+          <button class="faq-q lang-es" onclick="toggleFaq(this)">¿Qué es The Clinical Parent Academy? <span class="faq-icon">+</span></button>
+          <div class="faq-a lang-en">The Clinical Parent Academy is an educational platform built specifically for parents and caregivers. We bring you expert-level clinical knowledge in parent-friendly language through courses, 1:1 coaching, a parent support community, and monthly live webinars. Everything is evidence-based and created by licensed clinicians and specialists.</div>
+          <div class="faq-a lang-es">The Clinical Parent Academy es una plataforma educativa creada específicamente para padres y cuidadores. Te brindamos conocimiento clínico de nivel experto en un lenguaje accesible a través de cursos, asesoría 1:1, una comunidad de apoyo y seminarios en vivo mensuales. Todo está basado en evidencia y creado por clínicos y especialistas licenciados.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q lang-en" onclick="toggleFaq(this)">Who is this for? <span class="faq-icon">+</span></button>
+          <button class="faq-q lang-es" onclick="toggleFaq(this)">¿Para quién es esto? <span class="faq-icon">+</span></button>
+          <div class="faq-a lang-en">This is for any parent or caregiver who wants to better understand their child's development, therapy, or diagnosis. Whether your child just received a diagnosis, has been in therapy for years, or you simply want to be a more informed advocate, there is a place for you here.</div>
+          <div class="faq-a lang-es">Esto es para cualquier padre o cuidador que quiera entender mejor el desarrollo, la terapia o el diagnóstico de su hijo. Ya sea que tu hijo acaba de recibir un diagnóstico, lleva años en terapia, o simplemente quieres ser un defensor más informado, aquí hay un lugar para ti.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q lang-en" onclick="toggleFaq(this)">Do I need to have a child with a diagnosis to join? <span class="faq-icon">+</span></button>
+          <button class="faq-q lang-es" onclick="toggleFaq(this)">¿Mi hijo necesita tener un diagnóstico para que yo pueda unirme? <span class="faq-icon">+</span></button>
+          <div class="faq-a lang-en">Absolutely not. The Clinical Parent Academy is for every parent who wants to understand child development, communication, literacy, and wellness more deeply. You do not need a diagnosis to benefit from clinical knowledge.</div>
+          <div class="faq-a lang-es">Para nada. The Clinical Parent Academy es para todo padre que quiera entender más profundamente el desarrollo infantil, la comunicación, la alfabetización y el bienestar. No necesitas un diagnóstico para beneficiarte del conocimiento clínico.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q lang-en" onclick="toggleFaq(this)">Is this therapy or medical advice? <span class="faq-icon">+</span></button>
+          <button class="faq-q lang-es" onclick="toggleFaq(this)">¿Esto es terapia o consejo médico? <span class="faq-icon">+</span></button>
+          <div class="faq-a lang-en">No. The Clinical Parent Academy provides educational content only. Nothing here constitutes therapy, medical advice, or a clinical relationship. We always recommend working with a licensed professional for your child's specific needs. Think of us as the knowledge that helps you show up better to every appointment.</div>
+          <div class="faq-a lang-es">No. The Clinical Parent Academy ofrece únicamente contenido educativo. Nada aquí constituye terapia, consejo médico o una relación clínica. Siempre recomendamos trabajar con un profesional licenciado para las necesidades específicas de tu hijo. Piénsanos como el conocimiento que te ayuda a llegar mejor preparado a cada cita.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q lang-en" onclick="toggleFaq(this)">Who creates the content? <span class="faq-icon">+</span></button>
+          <button class="faq-q lang-es" onclick="toggleFaq(this)">¿Quién crea el contenido? <span class="faq-icon">+</span></button>
+          <div class="faq-a lang-en">All content is created by vetted, licensed clinicians and specialists including SLPs, OTs, PTs, literacy specialists, psychologists, developmental pediatricians, and more. Every piece of content must be grounded in peer-reviewed research and established clinical frameworks. We take accuracy seriously.</div>
+          <div class="faq-a lang-es">Todo el contenido es creado por clínicos y especialistas licenciados y verificados, incluyendo SLPs, OTs, PTs, especialistas en alfabetización, psicólogos, pediatras del desarrollo y más. Cada contenido debe estar fundamentado en investigación revisada por pares y marcos clínicos establecidos. La precisión es nuestra prioridad.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q lang-en" onclick="toggleFaq(this)">How is this different from just Googling? <span class="faq-icon">+</span></button>
+          <button class="faq-q lang-es" onclick="toggleFaq(this)">¿En qué se diferencia de buscar en Google? <span class="faq-icon">+</span></button>
+          <div class="faq-a lang-en">Google gives you millions of results with no filter for accuracy, credentials, or relevance to your child. The Clinical Parent Academy gives you vetted, evidence-based content created by licensed professionals, organized by topic, and translated into language that actually makes sense for your life.</div>
+          <div class="faq-a lang-es">Google te da millones de resultados sin filtro de precisión, credenciales ni relevancia para tu hijo. The Clinical Parent Academy te da contenido verificado y basado en evidencia, creado por profesionales licenciados, organizado por tema y traducido a un lenguaje que tiene sentido para tu vida.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q lang-en" onclick="toggleFaq(this)">Will there be content in Spanish? <span class="faq-icon">+</span></button>
+          <button class="faq-q lang-es" onclick="toggleFaq(this)">¿Habrá contenido en español? <span class="faq-icon">+</span></button>
+          <div class="faq-a lang-en">Yes. Bilingual access is a core part of our mission. The Clinical Parent Academy is built for Spanish-speaking families too. Bilingual clinicians are especially encouraged to join our contributor network.</div>
+          <div class="faq-a lang-es">Sí. El acceso bilingüe es una parte fundamental de nuestra misión. The Clinical Parent Academy está construida para las familias hispanohablantes también. Los clínicos bilingües son especialmente bienvenidos a unirse a nuestra red de colaboradores.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q lang-en" onclick="toggleFaq(this)">How much will it cost? <span class="faq-icon">+</span></button>
+          <button class="faq-q lang-es" onclick="toggleFaq(this)">¿Cuánto costará? <span class="faq-icon">+</span></button>
+          <div class="faq-a lang-en">Pricing will be announced at launch. Waitlist members will receive early access and founding member pricing before anyone else. Join the waitlist now to lock in the best rate.</div>
+          <div class="faq-a lang-es">Los precios se anunciarán en el lanzamiento. Los miembros de la lista de espera recibirán acceso anticipado y precios de miembro fundador antes que nadie. Únete a la lista ahora para asegurar la mejor tarifa.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q lang-en" onclick="toggleFaq(this)">When does it launch? <span class="faq-icon">+</span></button>
+          <button class="faq-q lang-es" onclick="toggleFaq(this)">¿Cuándo se lanza? <span class="faq-icon">+</span></button>
+          <div class="faq-a lang-en">We are actively building. Join the waitlist and you will be the first to know the moment we go live. We are not rushing. We are building this right.</div>
+          <div class="faq-a lang-es">Estamos construyendo activamente. Únete a la lista de espera y serás el primero en saber el momento en que salgamos en vivo. No nos estamos apresurando. Lo estamos construyendo bien.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q lang-en" onclick="toggleFaq(this)">How do I become a contributor? <span class="faq-icon">+</span></button>
+          <button class="faq-q lang-es" onclick="toggleFaq(this)">¿Cómo me convierto en colaborador? <span class="faq-icon">+</span></button>
+          <div class="faq-a lang-en">Scroll down to the For Clinicians section or go to our contact page and reach out. We are actively building our founding contributor network and would love to hear from you.</div>
+          <div class="faq-a lang-es">Desplázate hacia abajo hasta la sección Para Clínicos o ve a nuestra página de contacto. Estamos construyendo activamente nuestra red de colaboradores fundadores y nos encantaría saber de ti.</div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1479,6 +1656,21 @@
   <script>
     // Set default language on load
     document.body.classList.add('en');
+
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const answers = item.querySelectorAll('.faq-a');
+      const questions = item.querySelectorAll('.faq-q');
+      const isOpen = btn.classList.contains('open');
+
+      questions.forEach(q => q.classList.remove('open'));
+      answers.forEach(a => a.classList.remove('open'));
+
+      if (!isOpen) {
+        questions.forEach(q => q.classList.add('open'));
+        answers.forEach(a => a.classList.add('open'));
+      }
+    }
 
     function scrollToSection(id) {
       document.getElementById(id).scrollIntoView({behavior: 'smooth'});
